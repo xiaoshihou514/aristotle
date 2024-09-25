@@ -75,20 +75,20 @@ int main(int, char **) {
 
         // draw menu bar
         if (ImGui::BeginMenuBar()) {
-            if (ImGui::MenuItem(" Open")) {
+            if (ImGui::MenuItem("Open")) {
                 open_new_file(curr_file);
             }
-            if (ImGui::MenuItem(" Save")) {
+            if (ImGui::MenuItem("Save")) {
                 save_file();
             }
             // I'm sure Intellij users will feel right at home
-            if (ImGui::MenuItem(" Compile")) {
+            if (ImGui::MenuItem("Compile")) {
                 compile_file();
             }
-            if (ImGui::MenuItem("󰨮 Check")) {
+            if (ImGui::MenuItem("Check")) {
                 check_file();
             }
-            if (ImGui::MenuItem(" Format")) {
+            if (ImGui::MenuItem("Format")) {
                 format_file();
             }
             ImGui::EndMenuBar();
