@@ -1,3 +1,6 @@
 *.o
 aristotle
 imgui.ini
+./ndpc
+*.ndp
+*.html

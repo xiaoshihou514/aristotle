@@ -3,3 +3,4 @@ CompileFlags:
     - "-Iimgui"
     - "-Iimgui/backends"
     - "-Iimgui-filebrowser"
+    - "--std=c++17"
