@@ -81,6 +81,7 @@ $(EXE): $(OBJS)
 
 sync:
 	cd imgui && git checkout v1.90.9
+	cd imgui-filebrowser && git checkout b8fedfb673a4e13413bcac789d4c0b63bc19d948 > /dev/null
 
 clean:
 	rm -f $(EXE) $(OBJS)

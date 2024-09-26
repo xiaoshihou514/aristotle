@@ -83,12 +83,14 @@ int main(int, char **) {
                      ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoResize |
                          ImGuiWindowFlags_MenuBar);
 
-        // draw menu bar
+        // Munu bar logic
         if (ImGui::BeginMenuBar()) {
-            if (ImGui::MenuItem("Open")) {
+            if (ImGui::MenuItem("Open") ||
+                ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiKey_O)) {
                 fileDialog.Open();
             }
-            if (ImGui::MenuItem("Save")) {
+            if (ImGui::MenuItem("Save") ||
+                ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiKey_S)) {
                 auto f = fopen(curr_file.c_str(), "w");
                 if (f != NULL && fputs(text_area_buf, f) >= 0) {
                     modified = false;
@@ -98,18 +100,24 @@ int main(int, char **) {
                 }
             }
             // I'm sure Intellij users will feel right at home
-            if (ImGui::MenuItem("Compile")) {
+            // TODO: the hotkeys sometimes won't work
+            if (ImGui::MenuItem("Compile") ||
+                ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Shift | ImGuiKey_C)) {
                 std::cout << "Compile" << std::endl;
             }
-            if (ImGui::MenuItem("Check")) {
+            if (ImGui::MenuItem("Check") ||
+                ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiKey_C)) {
                 std::cout << "Check" << std::endl;
             }
-            if (ImGui::MenuItem("Format")) {
+            if (ImGui::MenuItem("Format") ||
+                ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Alt | ImGuiMod_Shift |
+                                ImGuiKey_F)) {
                 std::cout << "Format" << std::endl;
             }
             ImGui::EndMenuBar();
         }
 
+        // Main UI logic
         // set focus on text area on startup
         if (init) {
             ImGui::SetKeyboardFocusHere(0);
