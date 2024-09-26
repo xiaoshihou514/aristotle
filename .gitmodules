@@ -2,3 +2,6 @@
 	path = imgui
 	url = https://github.com/ocornut/imgui
 	branch = master
+[submodule "imgui-filebrowser"]
+	path = imgui-filebrowser
+	url = https://github.com/AirGuanZ/imgui-filebrowser

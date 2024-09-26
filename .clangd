@@ -2,3 +2,4 @@ CompileFlags:
   Add:
     - "-Iimgui"
     - "-Iimgui/backends"
+    - "-Iimgui-filebrowser"
