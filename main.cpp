@@ -20,13 +20,6 @@ static ImGui::FileBrowser fileDialog = ImGui::FileBrowser(
     ImGuiFileBrowserFlags_ConfirmOnEnter |
     ImGuiFileBrowserFlags_EditPathString);
 
-static int setmodified(ImGuiInputTextCallbackData *data) {
-    if (data->EventFlag == ImGuiInputTextFlags_CallbackEdit) {
-        modified = true;
-    }
-    return 0;
-}
-
 int main(int, char **) {
     // init glfw
     glfwSetErrorCallback([](auto error, auto desc) {
@@ -123,10 +116,17 @@ int main(int, char **) {
             init = false;
         }
         // imgui won't let you input more characters if buf is full :)
-        ImGui::InputTextMultiline("##UniqueIdentifer", text_area_buf, buf_size,
-                                  ImVec2(winsize.x - 15, winsize.y - 95),
-                                  ImGuiInputTextFlags_CallbackEdit,
-                                  setmodified);
+        ImGui::InputTextMultiline(
+            "##UniqueIdentifer", text_area_buf, buf_size,
+            ImVec2(winsize.x - 15, winsize.y - 95),
+            ImGuiInputTextFlags_CallbackEdit, [](auto data) {
+                if (data->EventFlag == ImGuiInputTextFlags_CallbackEdit) {
+                    // catch: if modified is not static it would need a capture
+                    // and won't work
+                    modified = true;
+                }
+                return 0;
+            });
         ImGui::Separator();
         if (!error_msg.empty()) {
             ImGui::Text("%s", error_msg.c_str());
