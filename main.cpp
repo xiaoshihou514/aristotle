@@ -9,7 +9,13 @@
 #include <tuple>
 
 #define MSG_DURATION 1000000000
+
+#ifdef __APPLE__
+#define GLSL_VERSION "#version 150"
+#else
 #define GLSL_VERSION "#version 130"
+#endif
+
 #ifdef _WIN_32
 // the worst platform
 #define NDPC_COMMAND "ndpc.exe"
@@ -113,7 +119,13 @@ int main(int argc, char **argv) {
         return 1;
     }
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+
+#ifdef __APPLE__
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+#else
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+#endif
+
     GLFWwindow *window =
         glfwCreateWindow(1280, 720, "Aristotle", nullptr, nullptr);
     if (window == nullptr) {
