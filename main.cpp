@@ -152,7 +152,7 @@ int main(int argc, char **argv) {
     ImGui_ImplOpenGL3_Init(GLSL_VERSION);
 
     std::string dir =
-        weakly_canonical(std::filesystem::path(argv[0])).parent_path();
+        weakly_canonical(std::filesystem::path(argv[0])).parent_path().u8string();
     std::string font_path = dir;
     font_path.append("/JetBrainsMono-Regular.ttf");
     io.Fonts->AddFontFromFileTTF(font_path.c_str(), 24.0f);
