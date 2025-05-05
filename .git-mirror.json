@@ -1,0 +1,14 @@
+[
+  {
+    "name": "codeberg",
+    "url": "ssh://git@codeberg.org/xiaoshihou/aristotle.git"
+  },
+  {
+    "name": "sourcehut",
+    "url": "git@git.sr.ht:~xiaoshihou/aristotle"
+  },
+  {
+    "name": "gitlab",
+    "url": "git@gitlab.com:xiaoshihou/aristotle.git"
+  }
+]
