@@ -8,6 +8,8 @@ Aristotle is an IDLE like environment for [ndpc](https://xiaoshihou514.github.io
 
 </div>
 
+[中文文档](./README-zh.md)
+
 ## Demo
 
 Click to watch video demo:
