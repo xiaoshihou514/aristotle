@@ -2,6 +2,8 @@
 
 # Aristotle
 
+<img src="https://github.com/user-attachments/assets/5afd0f80-14a0-476e-9f28-4b6233c29e4e" alt="logo" width="30%" />
+
 Aristotle is an IDLE like environment for [ndpc](https://xiaoshihou514.github.io/ndpc)
 
 </div>
