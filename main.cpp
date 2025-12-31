@@ -199,6 +199,7 @@ int main(int argc, char **argv) {
                 ImGui::Shortcut(ImGuiMod_Ctrl | ImGuiMod_Shift | ImGuiKey_C)) {
                 save_file();
                 std::string cmd = exepath;
+                cmd.append(" compile --lean")
                 cmd.append(" \"").append(curr_file).append("\" 2>&1");
                 exec(cmd);
                 maybe_show_error_msg = true;
